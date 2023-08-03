@@ -1,58 +1,46 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.1.1'
-	id 'io.spring.dependency-management' version '1.1.0'
-	id 'org.springframework.cloud'
-	id 'org.springdoc' version '2.1.0'
-	id 'org.jetbrains' version 'RELEASE'
+    id 'org.springframework.boot' version '3.1.0'
 }
 
-group = 'com.example'
+group = 'com.telkomedika'
 version = '0.0.1-SNAPSHOT'
-
-properties {
-	javaVersion = '20'
-	springCloudVersion = '2022.0.3'
-}
+description = 'Demo project for Spring Boot'
 
 java {
-	sourceCompatibility = '17'
-}
-
-repositories {
-	mavenCentral()
+    sourceCompatibility = JavaVersion.VERSION_20
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.postgresql:postgresql'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
-    	implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
-    	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2'
-	implementation 'javax.xml.bind:jaxb-api'
-	implementation 'org.projectlombok:lombok'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
-	implementation 'org.jetbrains:annotations'
-	
-}
-depedencyManagement {
-	depedencies{
-		implementation 'org.springframework.cloud:spring-cloud-dependencies'
-		version = springCloudVersion
-	}
-}
-build {
-	id 'org.springframework.boot:spring-boot-maven-plugin'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'javax.xml.bind:jaxb-api:2.3.0'
+    implementation 'org.postgresql:postgresql'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+    implementation 'org.jetbrains:annotations:RELEASE'
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
 }
+
+bootJar {
+    enabled = true
+}
+
+repositories {
+    mavenCentral()
+}
+
