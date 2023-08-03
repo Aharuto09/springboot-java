@@ -7,7 +7,7 @@ version = '0.0.1-SNAPSHOT'
 description = 'Demo project for Spring Boot'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_20
+    sourceCompatibility = '20'
 }
 
 dependencies {
