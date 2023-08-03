@@ -15,8 +15,8 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 properties {
-	java.version = '20'
-	spring-cloud.version = '2022.0.3'
+	javaVersion = '20'
+	springCloudVersion = '2022.0.3'
 }
 
 java {
@@ -48,7 +48,10 @@ dependencies {
 	
 }
 depedencyManagement {
-	implementation 'org.springframework.cloud:spring-cloud-dependencies'
+	depedencies{
+		implementation 'org.springframework.cloud:spring-cloud-dependencies'
+		version = springCloudVersion
+	}
 }
 build {
 	id 'org.springframework.boot:spring-boot-maven-plugin'
