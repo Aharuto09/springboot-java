@@ -2,6 +2,13 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.1.1'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id 'io.jsonwebtoken' version '0.11.5'
+	id 'javax.xml.bind' version '2.3.0'
+	id 'org.postgresql' scope 'runtime'
+	id 'org.projectlombok' optional 'true'
+	id 'org.springframework.cloud'
+	id 'org.springdoc' version '2.1.0'
+	id 'org.jetbrains' version 'RELEASE' scope 'compile'
 }
 
 group = 'com.example'
@@ -19,9 +26,25 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'io.jsonwebtoken:jjwt-api'
+	implementation 'io.jsonwebtoken:jjwt-impl'
+	implementation 'io.jsonwebtoken:jjwt-jackson'
+	implementation 'javax.xml.bind:jaxb-api'
+	implementation 'org.projectlombok:lombok'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.cloud:spring-cloud-dependencies'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
+	implementation 'org.jetbrains:annotations'
+	
+}
+build {
+	id 'org.springframework.boot:spring-boot-maven-plugin'
 }
 
 tasks.named('test') {
