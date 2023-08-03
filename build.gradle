@@ -43,10 +43,12 @@ dependencies {
 	implementation 'javax.xml.bind:jaxb-api'
 	implementation 'org.projectlombok:lombok'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-	implementation 'org.springframework.cloud:spring-cloud-dependencies'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
 	implementation 'org.jetbrains:annotations'
 	
+}
+depedencyManagement {
+	implementation 'org.springframework.cloud:spring-cloud-dependencies'
 }
 build {
 	id 'org.springframework.boot:spring-boot-maven-plugin'
